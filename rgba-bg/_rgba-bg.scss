@@ -1,0 +1,33 @@
+// --- mixins -----------------------------------------------------------------
+
+@mixin rgba-bg($color, $alpha: false) {
+  @if $alpha {
+    background: $color;
+    background: rgba($color, $alpha);
+  } @else if alpha($color) < 1 {
+    $_color: fade_in($color, 1);
+    $_alpha: alpha($color);
+    background: $_color;
+    background: rgba($_color, $_alpha);
+  } @else {
+    background: $color;
+  }
+}
+
+// --- usage ------------------------------------------------------------------
+
+.example-1 {
+  $color: #000;
+  @include rgba-bg($color);
+}
+
+.example-2 {
+  $color: #000;
+  @include rgba-bg($color, .5);
+}
+
+.example-3 {
+  $color: rgba(#000, .5);
+  @include rgba-bg($color);
+}
+
