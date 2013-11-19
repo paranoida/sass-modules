@@ -1,0 +1,27 @@
+// --- variables & setup ------------------------------------------------------
+
+$font-family-name: "Font Family Name";
+$fonts-collection: ("font-1", 200, normal)
+                   ("font-2", 300, normal)
+                   ("font-3", 400, italic)
+                   ("font-4", bold, normal);
+
+// --- fonts ------------------------------------------------------------------
+
+@each $font in $fonts-collection {
+  $font-file-name: nth($font, 1);
+  $font-weight: nth($font, 2);
+  $font-style: nth($font, 3);
+
+  @include font-face(
+    $font-family-name,
+    font-files(
+      font-path("#{$font-file-name}.woff"), woff,
+      font-path("#{$font-file-name}.ttf"), truetype,
+      font-path("#{$font-file-name}.svg#sourcesanspro"), svg
+    ),
+    font-path("#{$font-file-name}.eot"),
+    $font-weight,
+    $font-style
+  );
+}

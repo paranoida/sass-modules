@@ -1,0 +1,42 @@
+// --- variables & setup ------------------------------------------------------
+
+$icons-font-name: "icons";
+
+@include font-face(
+    $icons-font-name,
+    font-files(
+        font-path("#{$icons-font-name}.woff"),
+        font-path("#{$icons-font-name}.ttf"),
+        font-path("#{$icons-font-name}.svg#wimdu-icons")
+    ),
+    font-path("#{$icons-font-name}.eot"),
+    normal,
+    normal
+);
+
+// --- mixins -----------------------------------------------------------------
+
+@mixin ui-icon($name, $pua) {
+  .icon--#{$name}:before {
+    content: "\e#{$pua}";
+  }
+}
+
+// --- icons ------------------------------------------------------------------
+
+.icon {
+  display: inline-block;
+
+  &:before {
+    font-family: $icons-font-name;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+  }
+}
+
+@include ui-icon('home', '000');
+@include ui-icon('star', '001');
+@include ui-icon('star-alt', '002');
+// and so on...
