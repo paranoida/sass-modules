@@ -18,16 +18,16 @@
 
 .example-1 {
   $color: #000;
-  @include rgba-bg($color);
-}
-
-.example-2 {
-  $color: #000;
   @include rgba-bg($color, .5);
 }
 
-.example-3 {
+.example-2 {
   $color: rgba(#000, .5);
+  @include rgba-bg($color);
+}
+
+.example-3 {
+  $color: #000;
   @include rgba-bg($color);
 }
 
