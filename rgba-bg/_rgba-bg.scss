@@ -2,15 +2,15 @@
 
 @mixin rgba-bg($color, $alpha: false) {
   @if $alpha {
-    background: $color;
-    background: rgba($color, $alpha);
+    background-color: $color;
+    background-color: rgba($color, $alpha);
   } @else if alpha($color) < 1 {
     $_color: fade_in($color, 1);
     $_alpha: alpha($color);
-    background: $_color;
-    background: rgba($_color, $_alpha);
+    background-color: $_color;
+    background-color: rgba($_color, $_alpha);
   } @else {
-    background: $color;
+    background-color: $color;
   }
 }
 
